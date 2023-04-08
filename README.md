@@ -17,7 +17,7 @@ same file, which is overwritten per roll. (6,570-bit seed per char.)
 ## Your fluid code privately reproducible by the other party
 
 ```text
-Lq^V'8W@6BQ)i;cHOsrma~vjD-plc@K8>><w<=)DeK PR85{Q/a(ayqZf)6"
+Lq^V'8W@6BQ)i;cHOsr|a~vjD-plc@K8>><w<=)DeK ~R85{Q/a(ayqZf)6"
 ```
 
 <br>
