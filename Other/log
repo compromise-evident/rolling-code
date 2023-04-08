@@ -2,5 +2,8 @@ rolling-code log
 
 
 
+Version 2.0.0   Major security addition: secondary_seeds[].  Not compat w/ prev.
+                Saturday, April 8 2023
+
 Version 1.0.0   Secure rc system hence slow.
                 Friday, April 7 2023
