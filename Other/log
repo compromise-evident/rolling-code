@@ -5,7 +5,8 @@ rolling-code log
 Version 2.0.0   Major security addition: secondary_seeds[].  Not compat w/ prev.
                 This means you must  assume  what the  entire string looks like,
                 before you can test it (cryptanalyze.) ...The first char depends
-                on the last, the last on the first, and so on--all throughout.
+                on the last, the last on the first, and so on--all throughout as
+                done in Authorship, AuthorshipFemto, Hypership...
                 Saturday, April 8 2023
 
 Version 1.0.0   Secure rc system hence slow.
