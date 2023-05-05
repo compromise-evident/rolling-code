@@ -20,9 +20,6 @@ same file, which is overwritten per roll. (6,570-bit seed per char.)
 Lq^V'8W@6BQ)i;cHOsr|a~vjD-plc@K8>><w<=)DeK ~R85{Q/a`ayqZf)6"
 ```
 
-<br>
-<br>
-
 ## The Seeds file is overwritten per event ------>
 
 ```text
