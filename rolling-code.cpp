@@ -1,5 +1,5 @@
-/// rolling-code - generates random arbitrary-length text symmetric to those having any
-///                same file, which is overwritten per roll. (6,570-bit seed per char.)
+/// rolling-code - generates random arbitrary-length text symmetric with anyone having any same file that
+///                you have (file used as seeds and overwritten per roll. 6,570-bit seed per generated char.)
 ///                Nikolay Valentinovich Repnitskiy - License: WTFPLv2+ (wtfpl.net)
 
 
@@ -33,7 +33,7 @@ int main()
 	long long code_length = 60;
 	
 	
-	/*////////////////                                          \\\\\\\\\\\\\\\\
+	/*////////////////                                        \\\\\\\\\\\\\\\\\\
 	///////////////////////                              \\\\\\\\\\\\\\\\\\\\\\\
 	///////////////////////////                      \\\\\\\\\\\\\\\\\\\\\\\\\\\
 	/////////////////////////////                  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
