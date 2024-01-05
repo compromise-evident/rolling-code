@@ -1,15 +1,6 @@
-<!--
-Generates random arbitrary-length text symmetric with anyone having any same file that
-you have (file used as seeds and overwritten per roll. 6,570-bit seed per generated char.)
--->
-
-
-
 <p align="center">
   <img src="https://raw.githubusercontent.com/compromise-evident/rolling-code/main/Other/Terminal_25bb15311855abe4a2b9a7524c496b0bb8dbe7f8e5c7a9366d88ebb3663cceac.png">
 </p>
-
-[Auditing in the browser?](https://coliru.stacked-crooked.com/a/c3dae7243f1daa60)
 
 <br>
 <br>
