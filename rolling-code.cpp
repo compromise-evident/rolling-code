@@ -50,13 +50,12 @@ int main()
 	ifstream in_stream;
 	ofstream out_stream;
 	
-	//Checks if file "Seeds" is missing.
+	//Creates file "Seeds" if missing.
 	in_stream.open("Seeds");
 	bool existence_of_file_Seeds = true;
 	if(in_stream.fail() == true) {existence_of_file_Seeds = false;}
 	in_stream.close();
 	
-	//Creates file "Seeds" if missing.
 	char garbage_byte;
 	if(existence_of_file_Seeds == false)
 	{	//..........Gets path to file from user.
