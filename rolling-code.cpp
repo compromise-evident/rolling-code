@@ -122,10 +122,9 @@ int main()
 		//..........Checks if given file has at least 1,000 Bytes.
 		in_stream.open(path_to_file);
 		int thousand = 0;
-		in_stream.get(garbage_byte);
-		for(; in_stream.eof() == false;)
-		{	thousand++;
-			in_stream.get(garbage_byte);
+		for(int a = 0; a < 1000; a++)
+		{	in_stream.get(garbage_byte);
+			if(in_stream.eof() == false) {thousand++;}
 		}
 		in_stream.close();
 		
@@ -143,10 +142,9 @@ int main()
 	//Checks if file "Seeds" contains at least 1,000 Bytes.
 	in_stream.open("Seeds");
 	int thousand = 0;
-	in_stream.get(garbage_byte);
-	for(; in_stream.eof() == false;)
-	{	thousand++;
-		in_stream.get(garbage_byte);
+	for(int a = 0; a < 1000; a++)
+	{	in_stream.get(garbage_byte);
+		if(in_stream.eof() == false) {thousand++;}
 	}
 	in_stream.close();
 	
