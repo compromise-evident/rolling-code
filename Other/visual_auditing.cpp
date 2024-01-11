@@ -223,7 +223,7 @@ int main()
 				for(int c = 0; c < 100; c++) //..........Swaps 100 pairs of elements in randomness[]. (10,000 swaps total for each 1,000-char Code.)
 				{	int element_1 = (rand() % 1000);
 					int element_2 = (rand() % 1000);
-					int temp_element = randomness[element_1];
+					unsigned int temp_element = randomness[element_1];
 					randomness[element_1] = randomness[element_2];
 					randomness[element_2] = temp_element;
 				}
