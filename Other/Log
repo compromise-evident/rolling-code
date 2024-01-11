@@ -2,6 +2,10 @@ rolling-code
 
 
 
+Version 3.0.0   Complete rewrite. Fixed symm. Main improvement: random swapping;
+                order matters, not just  substance. Speedy. 1,000-char segments.
+                Jan 11 2024
+
 Version 2.0.1   Universal drag-n-drop; gets path then fixes it if drag-n-dropped
                 regardless of single-quote presence & "enter" not being cleared,
                 meaning you can have options before it where user presses enter.
