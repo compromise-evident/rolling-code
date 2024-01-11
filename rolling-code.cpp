@@ -127,7 +127,10 @@ int main()
 			unsigned int seeds[1000];
 			for(int a = 0; a < 1000; a++)
 			{	in_stream.get(garbage_byte_for_seeds_file);
-				if(in_stream.eof() == true) {cout << "\n\nFile too small.\n\n"; in_stream.close(); return 0;}
+				if(in_stream.eof() == true)
+				{	for(int b = 0; b < 1000; b++) {seeds[b] = 0; seeds[b] = 4294967295;} //..........Overwrites RAM of array unsigned int seeds[1000].
+					cout << "\n\nFile too small.\n\n"; in_stream.close(); return 0;
+				}
 				
 				int normal_byte = garbage_byte_for_seeds_file;
 				if(normal_byte < 0) {normal_byte += 256;}
@@ -144,6 +147,9 @@ int main()
 			}
 			out_stream << "\n\n\n\nPRIVATE! DO NOT SHARE!\n";
 			out_stream.close();
+			
+			//..........Overwrites RAM of array unsigned int seeds[1000].
+			for(int a = 0; a < 1000; a++) {seeds[a] = 0; seeds[a] = 4294967295;}
 		}
 	}
 	
@@ -162,7 +168,10 @@ int main()
 			seeds[a] = normal_byte;
 			
 			seeds[a] -= 48;
-			if((in_stream.eof() == true) || (seeds[a] > 9)) {cout << "\n\nBad seeds file.\n\n"; in_stream.close(); return 0;}
+			if((in_stream.eof() == true) || (seeds[a] > 9))
+			{	for(int b = 0; b < 1000; b++) {seeds[b] = 0; seeds[b] = 4294967295;} //..........Overwrites RAM of array unsigned int seeds[1000].
+				cout << "\n\nBad seeds file.\n\n"; in_stream.close(); return 0;
+			}
 		}
 		in_stream.close();
 		
@@ -181,7 +190,16 @@ int main()
 			actual_seeds[a] = overflow[a];
 		}
 		
-		//..........Generates.
+		
+		
+		
+		
+		/*####*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*######
+		##'                                         '##
+		#                  Randomness                 #
+		#                     core                    #
+		##,                                         ,##
+		####*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##*/
 		out_stream.open("Code", ios::app);
 		unsigned int randomness[1000] = {0};
 		for(long long a = 0; a < code_length_in_thousands; a++)
@@ -200,18 +218,18 @@ int main()
 			}
 			
 			//..........Makes 100 10-digit new actual seeds based on randomness[]. (!!! Adds to current actual_seeds. !!! The generated Code is NOT alone responsible for new actual_seeds. !!!)
-			long long overflow_2[100] = {0};
+			for(int b = 0; b < 100; b++) {overflow[b] = 0;}
 			int randomness_read_bookmark = 0;
 			for(int b = 0; b < 100; b++)
 			{	for(int c = 0; c < 10; c++)
-				{	overflow_2[b] += (randomness[randomness_read_bookmark] % 10);
-					if(c < 9) {overflow_2[b] *= 10;}
+				{	overflow[b] += (randomness[randomness_read_bookmark] % 10);
+					if(c < 9) {overflow[b] *= 10;}
 					randomness_read_bookmark++;
 				}
 				
-				overflow_2[b] += actual_seeds[b]; //..........(!!! See the addition? !!!)
-				overflow_2[b] %= 4294967296;
-				actual_seeds[b] = overflow_2[b];
+				overflow[b] += actual_seeds[b]; //..........(!!! See the addition? !!!)
+				overflow[b] %= 4294967296;
+				actual_seeds[b] = overflow[b];
 			}
 			
 			//..........Append-writes randomness[] to file "Code".
@@ -219,6 +237,10 @@ int main()
 		}
 		out_stream << "\n";
 		out_stream.close();
+		
+		
+		
+		
 		
 		//..........Overwrites seeds file.
 		out_stream.open(seeds_file_name);
@@ -232,12 +254,17 @@ int main()
 		}
 		out_stream << "\n\n\n\nPRIVATE! DO NOT SHARE!\n";
 		out_stream.close();
+		
+		//..........Overwrites RAM of arrays unsigned int seeds[1000] and unsigned int randomness[1000].
+		for(int a = 0; a < 1000; a++) {seeds[a] = 0; seeds[a] = 4294967295; randomness[a] = 0; randomness[a] = 4294967295;}
+		
+		//..........Overwrites RAM of array long long overflow[100].
+		for(int a = 0; a < 100; a++) {overflow[a] = 0; overflow[a] = -9223372036854775807; overflow[a] = 9223372036854775807;}
+		
+		//..........Overwrites RAM of array unsigned int actual_seeds[100].
+		for(int a = 0; a < 100; a++) {actual_seeds[a] = 0; actual_seeds[a] = 4294967295;}
+		
+		cout << "\n" << (code_length_in_thousands * 1000) << " characters appended to file \"Code\"."
+		                                                  << "\nNew seeds overwritten to file \"RC_seeds\".\n";
 	}
-	
-	
-	
-	
-	
-	cout << "\n" << (code_length_in_thousands * 1000) << " characters appended to file \"Code\"."
-	                                                  << "\nNew seeds overwritten to file \"RC_seeds\".\n";
 }
