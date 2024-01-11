@@ -1,4 +1,4 @@
-### (6,570-bit seed per generated character)
+v3 soon, fixed, complete rewrite
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/compromise-evident/rolling-code/main/Other/Terminal_bf488ab9a5485623070406539ab48eb8bfd91c15fa9b2df974dd953e8774d079.png">
