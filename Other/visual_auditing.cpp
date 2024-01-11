@@ -1,6 +1,6 @@
 /// rolling-code - generates random text symmetric with                         Run it: "apt install g++ geany". Open this in Geany. Hit F9 once. F5 to run.
 ///                anyone providing the same file for seeds
-///                (used once.) For all my repos using rand...
+///                (used once.) Base for my rand-using repos.
 
 
 /* Version 3.0.0
