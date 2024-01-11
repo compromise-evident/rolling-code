@@ -1,5 +1,3 @@
-# v3 soon, fixed, complete rewrite
-
 <p align="center">
   <img src="https://raw.githubusercontent.com/compromise-evident/rolling-code/main/Other/Terminal_def71af30f249f93d367767d14e1381e.png">
 </p>
