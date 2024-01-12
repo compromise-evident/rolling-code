@@ -2,6 +2,10 @@ rolling-code
 
 
 
+Version 3.0.1   Option to generate randomness,  rather than dependent  on seeds.
+                See bool RAM_Unix_time_supplement. Other.RAM overwriting. Clean.
+                Jan 11 2024
+
 Version 3.0.0   Complete rewrite. Fixed symm. Main improvement: random swapping;
                 order matters, not just  substance. Speedy. 1,000-char segments.
                 Jan 11 2024
