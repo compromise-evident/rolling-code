@@ -1,9 +1,11 @@
-/// rolling-code - generates random text symmetric with                         Run it: "apt install g++ geany". Open this in Geany. Hit F9 once. F5 to run.
-///                anyone providing the same file for seeds
-///                (used once.) Base for my rand-using repos.
+/// rolling-code - generates random text symmetric with anyone                  Run it: "apt install g++ geany". Open this in Geany. Hit F9 once. F5 to run.
+///                providing the same file (used once to set
+///                rolling-seeds.) To get unique randomness
+///                independent on any seeds file, set
+///                RAM_Unix_time_supplement to true.
 
 
-/* Version 3.0.0
+/* Version 3.0.1
 #########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
 #####'`                                                                  `'#####
 ###'                                                                        '###
@@ -35,6 +37,8 @@ int main()
 	\\\\\\\\\\\\\\\\\\                                        ////////////////*/
 	
 	long long code_length_in_thousands = 12;
+	
+	bool RAM_Unix_time_supplement = false; //DEFAULT = false.
 	
 	/*////////////////                                        \\\\\\\\\\\\\\\\\\
 	///////////////////////                              \\\\\\\\\\\\\\\\\\\\\\\
@@ -175,6 +179,29 @@ int main()
 		}
 		in_stream.close();
 		
+		//..........Supplements seeds[] for unique randomness (if RAM_Unix_time_supplement is true.)
+		if(RAM_Unix_time_supplement == true)
+		{	unsigned int RAM_garbage[100000]; //..........Sets a seed based on RAM garbage and Unix time.
+			long long overflow = time(0);
+			for(int a = 0; a < 100000; a++)
+			{	overflow += RAM_garbage[a];
+				overflow %= 4294967296;
+			}
+			unsigned int seed_based_on_RAM_garbage_and_Unix_time = overflow;
+			srand(seed_based_on_RAM_garbage_and_Unix_time);
+			
+			for(int a = 0; a < 1000; a++) //..........Supplements seeds[].
+			{	overflow = ((seeds[a] + rand()) % 10);
+				seeds[a] = overflow;
+			}
+			
+			for(int a = 0; a < 100000; a++) //..........Overwrites local.
+			{	RAM_garbage[a] = 0; RAM_garbage[a] = 4294967295;
+				overflow = 0; overflow = -9223372036854775807; overflow = 9223372036854775807;
+				seed_based_on_RAM_garbage_and_Unix_time = 0; seed_based_on_RAM_garbage_and_Unix_time = 4294967295;
+			}
+		}
+		
 		//..........Makes 100 10-digit actual seeds based on seeds[].
 		long long    overflow    [100] = {0};
 		unsigned int actual_seeds[100] = {0};
@@ -194,12 +221,7 @@ int main()
 		
 		
 		
-		/*####*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*######
-		##'                                         '##
-		#                  Randomness                 #
-		#                     core                    #
-		##,                                         ,##
-		####*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##*/
+		//..........Generator core.
 		out_stream.open("Code", ios::app);
 		unsigned int randomness[1000] = {0};
 		for(long long a = 0; a < code_length_in_thousands; a++)
@@ -232,7 +254,16 @@ int main()
 				actual_seeds[b] = overflow[b];
 			}
 			
-			//..........Append-writes randomness[] to file "Code".
+			/*#######*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
+			#####'`                                                                  `'#####
+			###'               Append-writes randomness[] to file "Code".               '###
+			##                                                                            ##
+			#,      Extract rand here!  unsigned int randomness[1000]  here-contains      ,#
+			#'      1,000 random values 0 to 255. This array gets all new randomness      '#
+			##       every time the program is here. And how many times is it here?       ##
+			###,      That's equal to the direct value of code_length_in_thousands.     ,###
+			#####,.                                                                  .,#####
+			##########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#######*/
 			for(int b = 0; b < 1000; b++) {out_stream << char((randomness[b] % 94) + 33);}
 		}
 		out_stream << "\n";
@@ -264,7 +295,8 @@ int main()
 		//..........Overwrites RAM of array unsigned int actual_seeds[100].
 		for(int a = 0; a < 100; a++) {actual_seeds[a] = 0; actual_seeds[a] = 4294967295;}
 		
-		cout << "\n" << (code_length_in_thousands * 1000) << " characters appended to file \"Code\"."
-		                                                  << "\nNew seeds overwritten to file \"RC_seeds\".\n";
+		cout << "\n";
+		if(RAM_Unix_time_supplement == true) {cout << "Random ";}
+		cout << (code_length_in_thousands * 1000) << " characters appended to file \"Code\"." << "\nNew seeds overwritten to file \"RC_seeds\".\n";
 	}
 }
