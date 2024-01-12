@@ -30,5 +30,5 @@ different ways to order 100 items.
 <br>
 
 <p align="center">
-<sup><sup><sub><sub><sub>*There's no such thing as random.</sub></sub></sub></sup></sup>
+<sub><sup><sub><sup>*There's no such thing as random.</sup></sub></sup></sub>
 </p>
