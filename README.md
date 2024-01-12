@@ -23,7 +23,8 @@ Seeds are 100 mostly 10-digit values strung together.
 Both the order of digits, and 10-digit values matters;
 guessing 100 correct 10-digit values is not enough,
 they must be in the correct order.
-* There's about [10^157](https://www.wolframalpha.com/input?i=100%21) different ways to order 100 items.
+There's about [10^157](https://www.wolframalpha.com/input?i=100%21)
+different ways to order 100 items.
 
 <br>
 <br>
