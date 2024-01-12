@@ -19,4 +19,6 @@ PRIVATE! DO NOT SHARE!
 <br>
 <br>
 
+<p align="center">
 <sub><sub>*There's no such thing as random.</sub></sub>
+</p>
