@@ -35,7 +35,7 @@ And when at your machines, make a text file containing
 those words--followed by any repeating character you've agreed to,
 until the file is 1,000+ bytes in size.
 With the two of you having this same file (or any same file--used once for seeds,)
-your groupOTP keys are symmetric.
+your groupOTP keys will be generated symmetrically.
 
 rolling-code will also supplement ciphertext in Authorship and Hypership.
 
