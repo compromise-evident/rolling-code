@@ -28,7 +28,7 @@ different ways to order 100 different items.
 
 # ...to be standard in all my rand-using repos
 
-With the RAM_Unix_time_supplement option disabled in e.g groupOTP,
+With the RAM_Unix_time_supplement option disabled in e.g. groupOTP,
 you and those with whom you wish to communicate in the future will
 be able to agree upon a handful of characters in person.
 And when with your machine, make a text file containing
