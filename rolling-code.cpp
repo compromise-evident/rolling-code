@@ -1,7 +1,7 @@
 /// rolling-code - generates random text symmetric with anyone                  Run it: "apt install g++ geany". Open this in Geany. Hit F9 once. F5 to run.
-///                providing the same file (used once to set
-///                rolling-seeds.) To get unique randomness
-///                independent on any seeds file, set
+///                providing any same file that you have (used
+///                once to set rolling-seeds.) To get unique
+///                randomness no matter the seeds file, set
 ///                RAM_Unix_time_supplement to true.
 
 
@@ -36,9 +36,9 @@ int main()
 	\\\\\\\\\\\\\\\\\\\\\\\                              ///////////////////////
 	\\\\\\\\\\\\\\\\\\                                        ////////////////*/
 	
-	long long code_length_in_thousands = 12;
+	long long code_length_in_thousands = 12; //Must be equal with whom codes are to be symmetric. DEFAULT = 12.
 	
-	bool RAM_Unix_time_supplement = false; //DEFAULT = false.
+	bool RAM_Unix_time_supplement = false;   //Set to true for codes of unique randomness, even with the same seeds file. DEFAULT = false.
 	
 	/*////////////////                                        \\\\\\\\\\\\\\\\\\
 	///////////////////////                              \\\\\\\\\\\\\\\\\\\\\\\
