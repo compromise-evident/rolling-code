@@ -31,11 +31,11 @@ different ways to order 100 different items.
 With RAM_Unix_time_supplement disabled in e.g. groupOTP,
 you and those with whom you wish to communicate in the future will
 be able to agree upon a good handful of characters in person.
-And when with your machine, make a text file containing
+And when at your machines, make a text file containing
 those characters--followed by any repeating character you've agreed to,
 until the file is 1,000+ bytes in size.
 With the two of you having this same file (used once for seeds,)
-your schemeOTP keys are symmetric.
+your groupOTP keys are symmetric.
 
 rolling-code will also supplement ciphertext in Authorship and Hypership.
 
