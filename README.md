@@ -16,15 +16,28 @@ PRIVATE! DO NOT SHARE!
 
 ```
 
-<br>
-<br>
-
 Seeds are 100 mostly 10-digit values strung together.
 Both the order of digits, and 10-digit values matters;
 guessing 100 correct 10-digit values is not enough,
 they must be ordered correctly.
 There's about [10^157](https://www.wolframalpha.com/input?i=100%21)
 different ways to order 100 different items.
+
+<br>
+<br>
+
+# ...to be standard in all my rand-using repos
+
+With the RAM_Unix_time_supplement option disabled in e.g schemeOTP,
+you and those with whom you wish to communicate in the future, will
+be able to agree upon a handful of characters in person.
+And when with your machine, make a text file containing
+those characters--followed by some character until the file
+is 1,000+ bytes in size.
+With the two of you having this same file (used once for seeds,)
+your schemeOTP keys are symmetric.
+
+rolling-code will supplement ciphertext in Authorship, Hypership, and Multiway.
 
 <br>
 <br>
