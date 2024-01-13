@@ -37,7 +37,7 @@ until the file is 1,000+ bytes in size.
 With the two of you having this same file (used once for seeds,)
 your schemeOTP keys are symmetric.
 
-rolling-code will also supplement ciphertext in Authorship, Hypership, and Multiway.
+rolling-code will also supplement ciphertext in Authorship and Hypership.
 
 <br>
 <br>
