@@ -256,7 +256,7 @@ int main()
 				
 				for(int c = 0; c < 1000; c++) {randomness[c] += rand(); randomness[c] %= 256;} //..........rand() for randomness[].
 				
-				for(int c = 0; c < 100; c++) //..........Swaps 100 pairs of elements in randomness[]. (10,000 swaps total for each 1,000-char Code.)
+				for(int c = 0; c < 200; c++) //..........Swaps 200 pairs of elements in randomness[]. (20,000 swaps total for each 1,000-char Code.)
 				{	int element_1 = (rand() % 1000);
 					int element_2 = (rand() % 1000);
 					unsigned int temp_element = randomness[element_1];
