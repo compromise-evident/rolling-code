@@ -1,8 +1,7 @@
-/// rolling-code - generates random text symmetric with anyone                  Run it: "apt install g++ geany". Open this in Geany. Hit F9 once. F5 to run.
-///                providing any same file that you have (used
-///                once to set rolling-seeds.) To get unique
-///                randomness no matter the seeds file, set
-///                RAM_Unix_time_supplement to true.
+/// rolling-code - generates random text symmetric with whom you                Run it: "apt install g++ geany". Open this in Geany. Hit F9 once. F5 to run.
+///                share any same file (used once to set rolling
+///                seeds file.) For unique codes no matter the
+///                files, set RAM_Unix_time_supplement to true.
 
 
 /* Version 3.0.1
@@ -228,9 +227,18 @@ int main()
 		{	for(int b = 0; b < 100; b++)
 			{	srand(actual_seeds[b]);
 				
+				/*#######*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
+				#####'`                                                                  `'#####
+				###'              You may freely replace the following 2 loops.             '###
+				##            Here, randomness is generated 1,000 bytes at-a-time.            ##
+				#,          What happens here, must happen 100 times. For each time,          ,#
+				#'         you may scramble the unsigned int randomness[1000] array.          '#
+				##           srand() will use a different seed for you, each time.            ##
+				###,            Values in randomness[] must be at least 0 to 9.             ,###
+				#####,.                                                                  .,#####
+				##########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#######*/
 				for(int c = 0; c < 1000; c++) {randomness[c] += rand(); randomness[c] %= 256;} //..........rand() for randomness[].
-				
-				for(int c = 0; c < 300; c++) //..........Swaps 300 pairs of elements in randomness[]. (30,000 swaps total for each 1,000-char Code.)
+				for(int c = 0; c <  300; c++) //..........Swaps 300 pairs of elements in randomness[]. (30,000 swaps total for each 1,000-char Code.)
 				{	int element_1 = (rand() % 1000);
 					int element_2 = (rand() % 1000);
 					for(; element_1 == element_2;) {element_2 = (rand() % 1000);}
