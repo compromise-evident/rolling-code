@@ -29,15 +29,15 @@ different ways to order 100 different items.
 # ...to be standard in all my rand-using repos
 
 With the RAM_Unix_time_supplement option disabled in e.g schemeOTP,
-you and those with whom you wish to communicate in the future, will
+you and those with whom you wish to communicate in the future will
 be able to agree upon a handful of characters in person.
 And when with your machine, make a text file containing
-those characters--followed by some character until the file
-is 1,000+ bytes in size.
+those characters--followed by any repeating character you've agreed to,
+until the file is 1,000+ bytes in size.
 With the two of you having this same file (used once for seeds,)
 your schemeOTP keys are symmetric.
 
-rolling-code will supplement ciphertext in Authorship, Hypership, and Multiway.
+rolling-code will also supplement ciphertext in Authorship, Hypership, and Multiway.
 
 <br>
 <br>
