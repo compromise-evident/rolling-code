@@ -197,7 +197,7 @@ int main()
 		//..........created from garbage RAM are added to the 100 10-digit actual_seeds[].)
 		if(RAM_Unix_time_supplement == true)
 		{	unsigned int RAM_garbage[100000];
-			long long overflow = (time(0) % 4294967296); //..........Adds Unix time to actual_seeds[0].
+			long long overflow = (time(0) % 4294967296); //..........Adds Unix time to actual_seeds[0]. (overflow is never reset; each actual_seed[] is supplemented with all, and unique.)
 			
 			for(int a = 0; a < 100; a++)              //..........Adds sum of every       RAM_garbage[] to actual_seeds[0],
 			{	int skip = (a + 1);                   //..........then sum of every other RAM_garbage[] to actual_seeds[1],
@@ -224,7 +224,9 @@ int main()
 		out_stream.open("Code", ios::app);
 		unsigned int randomness[1000] = {0};
 		for(long long a = 0; a < code_length_in_thousands; a++)
-		{	for(int b = 0; b < 100; b++)
+		{	
+			//..........Generator nucleus.
+			for(int b = 0; b < 100; b++)
 			{	srand(actual_seeds[b]);
 				
 				/*#######*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
