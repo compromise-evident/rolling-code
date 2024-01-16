@@ -4,7 +4,7 @@
 ///                files, set RAM_Unix_time_supplement to true.
 
 
-/* Version 3.0.1
+/* Version 3.0.2
 #########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
 #####'`                                                                  `'#####
 ###'                                                                        '###
@@ -178,29 +178,6 @@ int main()
 		}
 		in_stream.close();
 		
-		//..........Supplements seeds[] for unique randomness (if RAM_Unix_time_supplement is true.)
-		if(RAM_Unix_time_supplement == true)
-		{	unsigned int RAM_garbage[100000]; //..........Sets a seed based on RAM garbage and Unix time.
-			long long overflow = time(0);
-			for(int a = 0; a < 100000; a++)
-			{	overflow += RAM_garbage[a];
-				overflow %= 4294967296;
-			}
-			unsigned int seed_based_on_RAM_garbage_and_Unix_time = overflow;
-			srand(seed_based_on_RAM_garbage_and_Unix_time);
-			
-			for(int a = 0; a < 1000; a++) //..........Supplements seeds[].
-			{	overflow = ((seeds[a] + rand()) % 10);
-				seeds[a] = overflow;
-			}
-			
-			for(int a = 0; a < 100000; a++) //..........Overwrites local.
-			{	RAM_garbage[a] = 0; RAM_garbage[a] = 4294967295;
-				overflow = 0; overflow = -9223372036854775807; overflow = 9223372036854775807;
-				seed_based_on_RAM_garbage_and_Unix_time = 0; seed_based_on_RAM_garbage_and_Unix_time = 4294967295;
-			}
-		}
-		
 		//For visual auditing.
 		{	cout << "\n\n\n\n\n\nLoaded seeds[1000]\n~~~~~~~~~~~~~~~~~~\n";
 			for(int probe = 0; probe < 1000; probe++)
@@ -211,7 +188,7 @@ int main()
 			}
 		}
 		
-		//..........Makes 100 10-digit actual seeds based on seeds[].
+		//..........Makes 100 10-digit actual seeds based on seeds[]. (Strings together 10 contiguous digits, 100 times.)
 		long long    overflow    [100] = {0};
 		unsigned int actual_seeds[100] = {0};
 		int seeds_read_bookmark = 0;
@@ -226,8 +203,31 @@ int main()
 			actual_seeds[a] = overflow[a];
 		}
 		
+		//..........Supplements actual_seeds[] for unique randomness. (100 10-digit values
+		//..........created from garbage RAM are added to the 100 10-digit actual_seeds[].)
+		if(RAM_Unix_time_supplement == true)
+		{	unsigned int RAM_garbage[100000];
+			long long overflow = (time(0) % 4294967296); //..........Adds Unix time to actual_seeds[0].
+			
+			for(int a = 0; a < 100; a++)              //..........Adds sum of every       RAM_garbage[] to actual_seeds[0],
+			{	int skip = (a + 1);                   //..........then sum of every other RAM_garbage[] to actual_seeds[1],
+				for(int b = 0; b < 100000; b += skip) //..........then sum of every third RAM_garbage[] to actual_seeds[2], and so on.
+				{	overflow += RAM_garbage[b];
+				}
+				
+				overflow += actual_seeds[a];
+				overflow %= 4294967296;
+				actual_seeds[a] = overflow;
+			}
+			
+			for(int a = 0; a < 100000; a++) //..........Overwrites RAM of array unsigned int RAM_garbage[100000], and of variable long long overflow.
+			{	RAM_garbage[a] = 0; RAM_garbage[a] = 4294967295;
+				overflow = 0; overflow = -9223372036854775807; overflow = 9223372036854775807;
+			}
+		}
+		
 		//For visual auditing.
-		{	cout << "\n\n\n\n\n\nFirst actual_seeds[100], ditto but 10-digit\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+		{	cout << "\n\n\n\n\n\n1st actual_seeds[100] - ditto but 10-digit, random if RAM_Unix_time_supplement\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
 			for(int probe = 0; probe < 100; probe++)
 			{	if((probe + 1) <  10) {cout << " ";}
 				if((probe + 1) < 100) {cout << " ";}
@@ -275,7 +275,7 @@ int main()
 				}
 			}
 			
-			//..........Makes 100 10-digit new actual seeds based on randomness[]. (!!! Adds to current actual_seeds. !!! The generated Code is NOT alone responsible for new actual_seeds. !!!)
+			//..........Makes 100 10-digit new actual seeds based on randomness[]. (!!! Adds to current actual_seeds. !!! The generated Code is NOT alone responsible for new actual_seeds. !!!) (Strings together 10 contiguous digits, 100 times.)
 			for(int b = 0; b < 100; b++) {overflow[b] = 0;}
 			int randomness_read_bookmark = 0;
 			for(int b = 0; b < 100; b++)
