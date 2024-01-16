@@ -2,6 +2,10 @@ rolling-code
 
 
 
+Version 3.0.2   RAM_Unix_time_supplement  creates  100  10-digit values from RAM
+                garbage & Unix time then adds them to 100 10-digit actual_seeds.
+                Jan 16 2024
+
 Version 3.0.1   Option to generate randomness,  rather than dependent  on seeds.
                 See bool RAM_Unix_time_supplement. Other.RAM overwriting. Clean.
                 Jan 11 2024
