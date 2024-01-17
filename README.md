@@ -17,11 +17,14 @@ PRIVATE! DO NOT SHARE!
 ```
 
 Seeds are 100 mostly 10-digit values strung together.
-Both the order of digits, and 10-digit values matters;
+Both the order of digits, and order of 10-digit values matters;
 guessing 100 correct 10-digit values is not enough,
 they must be ordered correctly.
 There's about [10^157](https://www.wolframalpha.com/input?i=100%21)
 different ways to order 100 different items.
+And swapping a single pair of 10-digit seeds
+not only makes a difference, but a complete
+difference--as if a hash.
 
 <br>
 <br>
