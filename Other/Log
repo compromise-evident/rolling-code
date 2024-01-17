@@ -2,6 +2,11 @@ rolling-code
 
 
 
+Version 3.1.0   Thorough swapping in  randomness[].  Every element  is affected.
+                This was the original plan but slow, but tested on faster PCs...
+                Ready to be standard in all my rand-using repos.  200kB/s codes.
+                Jan 17 2024
+
 Version 3.0.2   RAM_Unix_time_supplement  creates  100  10-digit values from RAM
                 garbage & Unix time then adds them to 100 10-digit actual_seeds.
                 Jan 16 2024
