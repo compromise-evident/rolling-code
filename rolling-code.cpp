@@ -4,7 +4,7 @@
 ///                files, set RAM_Unix_time_supplement to true.
 
 
-/* Version 3.0.2
+/* Version 3.1.0
 #########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
 #####'`                                                                  `'#####
 ###'                                                                        '###
@@ -222,34 +222,32 @@ int main()
 		
 		
 		
-		//..........Generator core.
+		//..........Generator house.
 		out_stream.open("Code", ios::app);
 		unsigned int randomness[1000] = {0};
 		for(long long a = 0; a < code_length_in_thousands; a++)
 		{	
-			//..........Generator nucleus.
+			//..........Generator powerhouse.
 			for(int b = 0; b < 100; b++)
 			{	srand(actual_seeds[b]);
-				
 				/*#######*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
 				#####'`                                                                  `'#####
-				###'              You may freely replace the following 2 loops.             '###
-				##            Here, randomness is generated 1,000 bytes at-a-time.            ##
-				#,          What happens here, must happen 100 times. For each time,          ,#
-				#'         you may scramble the unsigned int randomness[1000] array.          '#
-				##           srand() will use a different seed for you, each time.            ##
-				###,            Values in randomness[] must be at least 0 to 9.             ,###
+				###'             You may freely replace the following two loops.            '###
+				##            Here, randomness is generated  1,000 bytes per round.           ##
+				#,         What happens here, must happen 100 times.  For each time,          ,#
+				#'        continue scrambling the unsigned int randomness[1000] array.        '#
+				##        srand() will use a different seed for you, each time  (100.)        ##
+				###,       Leave randomness[] with at least values  0 to 9  when done.      ,###
 				#####,.                                                                  .,#####
 				##########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#######*/
-				for(int c = 0; c < 1000; c++) {randomness[c] += rand(); randomness[c] %= 256;} //..........rand() for randomness[].
-				for(int c = 0; c <  300; c++) //..........Swaps 300 pairs of elements in randomness[]. (30,000 swaps total for each 1,000-char Code.)
-				{	int element_1 = (rand() % 1000);
-					int element_2 = (rand() % 1000);
-					for(; element_1 == element_2;) {element_2 = (rand() % 1000);}
+				for(int c = 0; c < 1000; c++) {randomness[c] += rand(); randomness[c] %= 256;} //..........Fills randomness[] (100x per 1,000-char code.)
+				for(int c = 0; c < 1000; c++) //..........Swaps EACH & EVERY element in randomness[] with randomly chosen (100,000x per 1,000-char code.)
+				{	int random_element = (rand() % 1000);
+					for(; random_element == c;) {random_element = (rand() % 1000);}
 					
-					unsigned int temp_element = randomness[element_1];
-					randomness[element_1] = randomness[element_2];
-					randomness[element_2] = temp_element;
+					unsigned int temp_element = randomness[random_element];
+					randomness[random_element] = randomness[c];
+					randomness[c] = temp_element;
 				}
 			}
 			
