@@ -22,7 +22,8 @@ guessing 100 correct 10-digit values is not enough,
 they must be ordered correctly.
 There's about [10^157](https://www.wolframalpha.com/input?i=100%21)
 different ways to order 100 different items.
-And swapping a single pair of 10-digit seeds
+Swapping or changing any digits or 10-digit
+strings in the seeds file,
 not only makes a difference, but a complete
 difference--as if a hash.
 
