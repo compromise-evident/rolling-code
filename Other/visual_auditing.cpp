@@ -203,8 +203,10 @@ int main()
 			actual_seeds[a] = overflow[a];
 		}
 		
-		//..........Supplements actual_seeds[] for unique randomness. (100 10-digit values
-		//..........created from garbage RAM are added to the 100 10-digit actual_seeds[].)
+		/*..........Supplements actual_seeds[] for unique randomness. (100 10-digit values
+		            created from garbage RAM are added to the 100 10-digit actual_seeds[].)
+		            Even if all zeros as supplement, actual_seeds[] take the weight (seeds file.)
+		            Declare 100k or 1M unsigned int array; there will be ~628 garbage items at end.*/
 		if(RAM_Unix_time_supplement == true)
 		{	unsigned int RAM_garbage[100000];
 			long long overflow = (time(0) % 4294967296); //..........Adds Unix time to actual_seeds[0]. (overflow is never reset; each actual_seed[] is supplemented with all, and unique.)
