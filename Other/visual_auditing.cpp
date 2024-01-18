@@ -161,7 +161,9 @@ int main()
 	
 	
 	//Generates randomness.
-	{	//..........Loads seeds[] with seeds file.
+	{	long long temp_overflow_for_randomness;
+		
+		//..........Loads seeds[] with seeds file.
 		in_stream.open(seeds_file_name);
 		unsigned int seeds[1000];
 		for(int a = 0; a < 1000; a++)
@@ -189,18 +191,17 @@ int main()
 		}
 		
 		//..........Makes 100 10-digit actual seeds based on seeds[]. (Strings together 10 contiguous digits, 100 times.)
-		long long    overflow    [100] = {0};
 		unsigned int actual_seeds[100] = {0};
 		int seeds_read_bookmark = 0;
 		for(int a = 0; a < 100; a++)
-		{	for(int b = 0; b < 10; b++)
-			{	overflow[a] += seeds[seeds_read_bookmark];
-				if(b < 9) {overflow[a] *= 10;}
+		{	temp_overflow_for_randomness = 0;
+			for(int b = 0; b < 10; b++)
+			{	temp_overflow_for_randomness += seeds[seeds_read_bookmark];
+				if(b < 9) {temp_overflow_for_randomness *= 10;}
 				seeds_read_bookmark++;
 			}
 			
-			overflow[a] %= 4294967296;
-			actual_seeds[a] = overflow[a];
+			actual_seeds[a] = (temp_overflow_for_randomness % 4294967296);
 		}
 		
 		/*..........Supplements actual_seeds[] for unique randomness. (100 10-digit values
@@ -209,23 +210,17 @@ int main()
 		            Declare 100k or 1M unsigned int array; there will be ~628 garbage items at end.*/
 		if(RAM_Unix_time_supplement == true)
 		{	unsigned int RAM_garbage[100000];
-			long long overflow = (time(0) % 4294967296); //..........Adds Unix time to actual_seeds[0]. (overflow is never reset; each actual_seed[] is supplemented with all, and unique.)
+			temp_overflow_for_randomness = (time(0) % 4294967296); //..........Adds Unix time to actual_seeds[0]. (temp_overflow_for_randomness is never reset; each actual_seed[] is supplemented with incremental, and unique.)
 			
-			for(int a = 0; a < 100; a++)              //..........Adds sum of every       RAM_garbage[] to actual_seeds[0],
-			{	int skip = (a + 1);                   //..........then sum of every other RAM_garbage[] to actual_seeds[1],
-				for(int b = 0; b < 100000; b += skip) //..........then sum of every third RAM_garbage[] to actual_seeds[2], and so on.
-				{	overflow += RAM_garbage[b];
-				}
+			for(int a = 0; a < 100; a++) //..........Adds sum of every RAM_garbage[] to actual_seeds[0], then sum of every other to actual_seeds[1], then sum of every third to actual_seeds[2], and so on.
+			{	int skip = (a + 1);
+				for(int b = 0; b < 100000; b += skip) {temp_overflow_for_randomness += RAM_garbage[b]; temp_overflow_for_randomness %= 4294967296;}
 				
-				overflow += actual_seeds[a];
-				overflow %= 4294967296;
-				actual_seeds[a] = overflow;
+				temp_overflow_for_randomness += actual_seeds[a];
+				actual_seeds[a] = (temp_overflow_for_randomness % 4294967296);
 			}
 			
-			for(int a = 0; a < 100000; a++) //..........Overwrites RAM of array unsigned int RAM_garbage[100000], and of variable long long overflow.
-			{	RAM_garbage[a] = 0; RAM_garbage[a] = 4294967295;
-				overflow = 0; overflow = -9223372036854775807; overflow = 9223372036854775807;
-			}
+			for(int a = 0; a < 100000; a++) {RAM_garbage[a] = 0; RAM_garbage[a] = 4294967295;} //..........Overwrites RAM of array unsigned int RAM_garbage[100000].
 		}
 		
 		//For visual auditing.
@@ -278,18 +273,17 @@ int main()
 			}
 			
 			//..........Makes 100 10-digit new actual seeds based on randomness[]. (!!! Adds to current actual_seeds. !!! The generated Code is NOT alone responsible for new actual_seeds. !!!) (Strings together 10 contiguous digits, 100 times.)
-			for(int b = 0; b < 100; b++) {overflow[b] = 0;}
 			int randomness_read_bookmark = 0;
 			for(int b = 0; b < 100; b++)
-			{	for(int c = 0; c < 10; c++)
-				{	overflow[b] += (randomness[randomness_read_bookmark] % 10);
-					if(c < 9) {overflow[b] *= 10;}
+			{	temp_overflow_for_randomness = 0;
+				for(int c = 0; c < 10; c++)
+				{	temp_overflow_for_randomness += (randomness[randomness_read_bookmark] % 10);
+					if(c < 9) {temp_overflow_for_randomness *= 10;}
 					randomness_read_bookmark++;
 				}
 				
-				overflow[b] += actual_seeds[b]; //..........(!!! See the addition? !!!)
-				overflow[b] %= 4294967296;
-				actual_seeds[b] = overflow[b];
+				temp_overflow_for_randomness += actual_seeds[b];
+				actual_seeds[b] = (temp_overflow_for_randomness % 4294967296);
 			}
 			
 			//For visual auditing.
@@ -345,11 +339,11 @@ int main()
 		out_stream << "\n\n\n\nPRIVATE! DO NOT SHARE!\n";
 		out_stream.close();
 		
+		//..........Overwrites RAM of variable long long temp_overflow_for_randomness.
+		temp_overflow_for_randomness = 0; temp_overflow_for_randomness = -9223372036854775807; temp_overflow_for_randomness = 9223372036854775807;
+		
 		//..........Overwrites RAM of arrays unsigned int seeds[1000] and unsigned int randomness[1000].
 		for(int a = 0; a < 1000; a++) {seeds[a] = 0; seeds[a] = 4294967295; randomness[a] = 0; randomness[a] = 4294967295;}
-		
-		//..........Overwrites RAM of array long long overflow[100].
-		for(int a = 0; a < 100; a++) {overflow[a] = 0; overflow[a] = -9223372036854775807; overflow[a] = 9223372036854775807;}
 		
 		//..........Overwrites RAM of array unsigned int actual_seeds[100].
 		for(int a = 0; a < 100; a++) {actual_seeds[a] = 0; actual_seeds[a] = 4294967295;}
