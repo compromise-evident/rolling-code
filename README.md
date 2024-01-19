@@ -33,8 +33,8 @@ difference--as if a hash.
 # For absolutely absurd cryptanalysis protection...
 
 Set absurd_protection_against_cryptanalysis to true.
-For each round, it'll write only one of 1,000 items from randomness[] to file "Code".
-This is very slow, and code_length_in_thousands simply becomes "actual code length."
+It writes only one of 1,000 items from randomness[] to file "Code" per round.
+It's slow, and code_length_in_thousands simply becomes "actual code length."
 
 <br>
 <br>
