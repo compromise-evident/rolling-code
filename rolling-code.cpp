@@ -227,7 +227,7 @@ int main()
 			{	srand(actual_seeds[b]);
 				/*#######*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
 				#####'`                                                                  `'#####
-				###'             You may freely replace the following two loops.            '###
+				###'             You may freely replace the following few items.            '###
 				##            Here, randomness is generated  1,000 bytes per round.           ##
 				#,         What happens here, must happen 100 times.  For each time,          ,#
 				#'        continue scrambling the unsigned int randomness[1000] array.        '#
@@ -236,6 +236,10 @@ int main()
 				#####,.                                                                  .,#####
 				##########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#######*/
 				for(int c = 0; c < 1000; c++) {randomness[c] += rand(); randomness[c] %= 256;} //..........Fills randomness[] (100x per 1,000-char code.)
+				temp_overflow_for_randomness = (actual_seeds[99 - b] + rand()); //..........Modifies inverse actual_seeds[].
+				actual_seeds[99 - b] = (temp_overflow_for_randomness % 4294967296);
+				
+				srand(actual_seeds[99 - b]);  //..........Now using that inverse seed.
 				for(int c = 0; c < 1000; c++) //..........Swaps EACH & EVERY element in randomness[] with randomly chosen (100,000x per 1,000-char code.)
 				{	int random_element = (rand() % 1000);
 					for(; random_element == c;) {random_element = (rand() % 1000);}
@@ -244,6 +248,8 @@ int main()
 					randomness[random_element] = randomness[c];
 					randomness[c] = temp_element;
 				}
+				temp_overflow_for_randomness = (actual_seeds[b] + rand()); //..........Modifies current actual_seeds[].
+				actual_seeds[b] = (temp_overflow_for_randomness % 4294967296);
 			}
 			
 			//..........Makes 100 10-digit new actual seeds based on randomness[]. (!!! Adds to current actual_seeds. !!! The generated Code is NOT alone responsible for new actual_seeds. !!!) (Strings together 10 contiguous digits, 100 times.)
