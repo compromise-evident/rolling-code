@@ -30,6 +30,14 @@ difference--as if a hash.
 <br>
 <br>
 
+# For absolutely absurd cryptanalysis protection...
+
+For each round, let only one item from randomness[] be written to file "Code".
+This is very slow, and code_length_in_thousands simply becomes "actual code length".
+
+<br>
+<br>
+
 # ...to be standard in all my rand-using repos
 
 With RAM_Unix_time_supplement disabled in e.g. groupOTP,
