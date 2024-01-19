@@ -39,6 +39,8 @@ int main()
 	
 	bool RAM_Unix_time_supplement = false;   //Set to true for codes of unique randomness, even with the same seeds file. DEFAULT = false.
 	
+	bool absurd_protection_against_cryptanalysis = false; //Slow, code_length_in_thousands becomes "actual code length."  DEFAULT = false.
+	
 	/*////////////////                                        \\\\\\\\\\\\\\\\\\
 	///////////////////////                              \\\\\\\\\\\\\\\\\\\\\\\
 	///////////////////////////                      \\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -266,17 +268,20 @@ int main()
 				actual_seeds[b] = (temp_overflow_for_randomness % 4294967296);
 			}
 			
-			/*#######*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
-			#####'`                                                                  `'#####
-			###'               Append-writes randomness[] to file "Code".               '###
-			##                                                                            ##
-			#,      Extract rand here!  unsigned int randomness[1000]  here-contains      ,#
-			#'      1,000 random values 0 to 255. This array gets all new randomness      '#
-			##       every time the program is here. And how many times is it here?       ##
-			###,      That's equal to the direct value of code_length_in_thousands.     ,###
-			#####,.                                                                  .,#####
-			##########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#######*/
-			for(int b = 0; b < 1000; b++) {out_stream << char((randomness[b] % 94) + 33);}
+			if(absurd_protection_against_cryptanalysis == true) {out_stream << char((randomness[500] % 94) + 33);} //..........Writes only 1 code item per round.
+			else
+			{	/*#######*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
+				#####'`                                                                  `'#####
+				###'               Append-writes randomness[] to file "Code".               '###
+				##                                                                            ##
+				#,      Extract rand here!  unsigned int randomness[1000]  here-contains      ,#
+				#'      1,000 random values 0 to 255. This array gets all new randomness      '#
+				##       every time the program is here. And how many times is it here?       ##
+				###,      That's equal to the direct value of code_length_in_thousands.     ,###
+				#####,.                                                                  .,#####
+				##########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#######*/
+				for(int b = 0; b < 1000; b++) {out_stream << char((randomness[b] % 94) + 33);}
+			}
 		}
 		out_stream << "\n";
 		out_stream.close();
@@ -308,7 +313,14 @@ int main()
 		for(int a = 0; a < 100; a++) {actual_seeds[a] = 0; actual_seeds[a] = 4294967295;}
 		
 		cout << "\n";
-		if(RAM_Unix_time_supplement == true) {cout << "Random ";}
-		cout << (code_length_in_thousands * 1000) << " characters appended to file \"Code\"." << "\nNew seeds overwritten to file \"RC_seeds\".\n";
+		if(RAM_Unix_time_supplement                == true) {cout << "Random "                      ;}
+		if(absurd_protection_against_cryptanalysis == true) {cout << code_length_in_thousands       ;}
+		else                                                {cout << code_length_in_thousands * 1000;}
+		
+		if((absurd_protection_against_cryptanalysis == true) && (code_length_in_thousands == 1)) {cout << " character" ;}
+		else                                                                                     {cout << " characters";}
+		
+		cout << " appended to file \"Code\"."
+		     << "\nNew seeds overwritten to file \"RC_seeds\".\n";
 	}
 }
