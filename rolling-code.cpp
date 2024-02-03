@@ -67,9 +67,8 @@ int main()
 		
 		if(existence_of_seeds_file == false)
 		{	//..........Gets path to file from user.
-			cout << "\nJust once, provide any file"
-			     << "\nof 1,000+ random first bytes."
-			     << "\nDrag & drop it or enter path:\n";
+			cout << "\nJust once, drop/enter any file"
+			     << "\nof 1,000+ random first bytes:\n";
 			
 			//..........Gets path then fixes it if drag-n-dropped, regardless of single-quote presence and "enter"
 			//..........not being cleared, meaning you can have options before this, where the user presses enter.
@@ -321,6 +320,6 @@ int main()
 		else                                                                                     {cout << " characters";}
 		
 		cout << " appended to file \"Code\"."
-		     << "\nNew seeds overwritten to file \"RC_seeds\".\n";
+		     << "\nNew seeds overwritten to file \"RC_seeds\".\n\n\n";
 	}
 }
