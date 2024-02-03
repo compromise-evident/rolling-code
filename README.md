@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/compromise-evident/rolling-code/main/Other/Terminal_def71af30f249f93d367767d14e1381e.png">
+  <img src="https://raw.githubusercontent.com/compromise-evident/rolling-code/main/Other/Terminal_ff69c1f0f76ba895294509a31af27137.png">
 </p>
 
 <br>
