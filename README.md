@@ -52,7 +52,7 @@ until the file is 1,000+ bytes in size.
 With the two of you having this same file (or any same file--used once for seeds,)
 your groupOTP keys will be generated symmetrically.
 
-rolling-code will also supplement ciphertext in Authorship and Hypership.
+rolling-code will also supplement ciphertext in Authorship.
 
 <br>
 <br>
