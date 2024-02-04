@@ -41,22 +41,6 @@ just the code hash so as not to expose the code for authentication.
 <br>
 <br>
 
-# ...to be standard in all my rand-using repos
-
-With RAM_Unix_time_supplement disabled in e.g. groupOTP,
-you and those with whom you wish to communicate in the future will
-be able to agree upon a good handful of words in person.
-And when at your machines, make a text file containing
-those words--followed by any repeating character you've agreed to,
-until the file is 1,000+ bytes in size.
-With the two of you having this same file (or any same file--used once for seeds,)
-your groupOTP keys will be generated symmetrically.
-
-rolling-code will also supplement ciphertext in Authorship.
-
-<br>
-<br>
-
 <p align="center">
 <sub><sup><sub><sup>*There's no such thing as random.</sup></sub></sup></sub>
 </p>
