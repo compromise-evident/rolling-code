@@ -36,7 +36,7 @@ Set absurd_protection_against_cryptanalysis to true.
 It writes only one of 1,000 items from randomness[] to file "Code" per round.
 It's very slow, and code_length_in_thousands simply becomes "actual code length."
 Whether or not you set it to true, if you don't want the code exposed,
-communicate only its hash for authentication.
+communicate only its hash.
 
 <br>
 <br>
