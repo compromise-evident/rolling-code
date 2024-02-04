@@ -1,5 +1,5 @@
-Authorship        Not engaged.   Ciphertext: reset randomness[], RC supplements ciphertext. Remaster tool from ground up.
-falseOTP          Engaged.       cout << each MB done.
-groupOTP          Not engaged.
 ProximitySieve    Done!
+Authorship        Not engaged.   Ciphertext: reset randomness[], RC supplements ciphertext. Remaster tool from ground up.
 schemeOTP         Not engaged.
+groupOTP          Not engaged.
+falseOTP          Engaged.       cout << each MB done.
