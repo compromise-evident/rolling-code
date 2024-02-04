@@ -1,4 +1,4 @@
-Authorship        Not engaged.   Ciphertext: reset randomness[], RC supplements ciphertext, remaster from ground up.
+Authorship        Not engaged.   Ciphertext: reset randomness[], RC supplements ciphertext. Remaster tool from ground up.
 groupOTP          Not engaged.
 Multiway          Not engaged.   cout << each MB done.
 ProximitySieve    Done!
