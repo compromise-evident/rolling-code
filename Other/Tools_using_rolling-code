@@ -1,9 +1,5 @@
-Tools using rolling-code
-
-
-
- 1. Authorship      Not engaged. Ciphertext: reset randomness[], RC supplements ciphertext, remaster from ground up.
- 2. groupOTP        Not engaged.
- 3. Multiway        Not engaged. cout << each MB done.
- 4. ProximitySieve  Done!
- 5. schemeOTP       Not engaged.
+Authorship        Not engaged.   Ciphertext: reset randomness[], RC supplements ciphertext, remaster from ground up.
+groupOTP          Not engaged.
+Multiway          Not engaged.   cout << each MB done.
+ProximitySieve    Done!
+schemeOTP         Not engaged.
