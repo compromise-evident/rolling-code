@@ -128,6 +128,7 @@ int main()
 			
 			//..........Loads seeds[] with given file's 1,000 Bytes.
 			in_stream.open(path_to_file_for_seeds);
+			if(in_stream.fail() == true) {cout << "\nNo such file.\n"; in_stream.close(); return 0;}
 			unsigned int seeds[1000];
 			for(int a = 0; a < 1000; a++)
 			{	in_stream.get(garbage_byte_for_seeds_file);
