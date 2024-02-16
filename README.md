@@ -41,6 +41,16 @@ communicate only its hash.
 <br>
 <br>
 
+# Tools using RC
+
+* OTP
+* falseOTP
+* Authorship
+* ProximitySieve
+
+<br>
+<br>
+
 <p align="center">
 <sub><sup><sub><sup>*There's no such thing as random.</sup></sub></sup></sub>
 </p>
