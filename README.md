@@ -24,8 +24,8 @@ There's about [10^157](https://www.wolframalpha.com/input?i=100%21)
 different ways to order 100 different items.
 Swapping or changing any digits or 10-digit
 strings in the seeds file,
-not only makes a difference, but a complete
-difference--as if a hash.
+not only makes a difference in the code,
+but a complete difference--as if a hash.
 
 <br>
 <br>
