@@ -44,6 +44,6 @@ communicate only its hash.
 # Tools using RC
 
 * OTP
-* falseOTP
+* passOTP
 * Authorship
 * ProximitySieve
