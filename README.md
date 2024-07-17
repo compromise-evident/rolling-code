@@ -43,7 +43,6 @@ communicate only its hash.
 
 # Tools using RC
 
-* OTP
-* passOTP
 * Authorship
-* ProximitySieve
+* passOTP
+* OTP
