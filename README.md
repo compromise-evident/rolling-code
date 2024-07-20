@@ -46,4 +46,4 @@ communicate only its hash.
 * Memory is zeroed when allocated and freed.
 
 `init_on_alloc` and `init_on_free` has hit most Linux distros and growing.
-Although a plus for security, no more RAM garbage for supplementing randomness.
+Although a plus for security, rolling-code 3.1.1+ will no longer use RAM garbage for supplementing randomness.
