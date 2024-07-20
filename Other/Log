@@ -2,6 +2,12 @@ rolling-code
 
 
 
+Version 3.1.1   Upgraded randomness supplement from  Unix time.  And removed RAM
+                garbage as randomness supplement due to  Linux now  zeroing  RAM
+                before allocating  it to a process,  and zeroing that  RAM after
+                freeing that process. See kernel:  init_on_alloc,  init_on_free.
+                Jul 20 2024
+
 Version 3.1.0   Thorough swapping in  randomness[].  Every element  is affected.
                 This was the original plan but slow, but tested on faster PCs...
                 Ready to be standard in all my rand-using repos.  200kB/s codes.
