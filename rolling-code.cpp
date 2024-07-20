@@ -1,43 +1,29 @@
 /// rolling-code - generates random text symmetric with whom you                Run it: "apt install g++ geany". Open this in Geany. Hit F9 once. F5 to run.
 ///                share any same file (used once to set rolling
 ///                seeds file.) For unique codes no matter the
-///                files, set RAM_Unix_time_supplement to true.
+///                file, set Unix_time_supplement to true.
 
 
-/* Version 3.1.0
-#########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
-#####'`                                                                  `'#####
-###'                                                                        '###
-##                                                                            ##
-#,         Just once, provide any file of  1,000+ random first bytes.         ,#
-#'          Share it in person, with whom codes are to be symmetric.          '#
-##                                                                            ##
-###,                                                                        ,###
-#####,.                                                                  .,#####
-##########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#######*/
-
+// Version 3.1.1
 #include <fstream>
 #include <iostream>
 using namespace std;
-
 int main()
-{	//                               user knobs
-	
-	/*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\//////////////////////////////////////
+{	/*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\//////////////////////////////////////
 	\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  /////////////////////////////////////
 	\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\    ////////////////////////////////////
 	\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\      ///////////////////////////////////
 	\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\        //////////////////////////////////
 	\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\            ////////////////////////////////
 	\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\              ///////////////////////////////
-	\\\\\\\\\\\\\\\\\\\\\\\\\\\\\                  /////////////////////////////
-	\\\\\\\\\\\\\\\\\\\\\\\\\\\                      ///////////////////////////
+	\\\\\\\\\\\\\\\\\\\\\\\\\\\\\       your       /////////////////////////////
+	\\\\\\\\\\\\\\\\\\\\\\\\\\\       controls       ///////////////////////////
 	\\\\\\\\\\\\\\\\\\\\\\\                              ///////////////////////
 	\\\\\\\\\\\\\\\\\\                                        ////////////////*/
 	
 	long long code_length_in_thousands = 12; //Must be equal with whom codes are to be symmetric. DEFAULT = 12.
 	
-	bool RAM_Unix_time_supplement = false;   //Set to true for codes of unique randomness, even with the same seeds file. DEFAULT = false.
+	bool Unix_time_supplement = false;       //Set to true for codes of unique randomness, even with the same seeds file. DEFAULT = false.
 	
 	bool absurd_protection_against_cryptanalysis = false; //Slow, code_length_in_thousands becomes "actual code length."  DEFAULT = false.
 	
@@ -196,23 +182,14 @@ int main()
 			actual_seeds[a] = (temp_overflow_for_randomness % 4294967296);
 		}
 		
-		/*..........Supplements actual_seeds[] for unique randomness. (100 10-digit values
-		            created from garbage RAM are added to the 100 10-digit actual_seeds[].)
-		            Even if all zeros as supplement, actual_seeds[] take the weight (seeds file.)
-		            Declare 100k or 1M unsigned int array; there will be ~628 garbage items at end.*/
-		if(RAM_Unix_time_supplement == true)
-		{	unsigned int RAM_garbage[100000];
-			temp_overflow_for_randomness = (time(0) % 4294967296); //..........Adds Unix time to actual_seeds[0]. (temp_overflow_for_randomness is never reset; each actual_seed[] is supplemented with incremental, and unique.)
-			
-			for(int a = 0; a < 100; a++) //..........Adds sum of every RAM_garbage[] to actual_seeds[0], then sum of every other to actual_seeds[1], then sum of every third to actual_seeds[2], and so on.
-			{	int skip = (a + 1);
-				for(int b = 0; b < 100000; b += skip) {temp_overflow_for_randomness += RAM_garbage[b]; temp_overflow_for_randomness %= 4294967296;}
-				
+		//..........Supplements all actual_seeds[] with randomness based on Unix time.
+		if(Unix_time_supplement == true)
+		{	srand(time(0));
+			for(int a = 0; a < 100; a++)
+			{	temp_overflow_for_randomness = (rand() % 4294967296);
 				temp_overflow_for_randomness += actual_seeds[a];
 				actual_seeds[a] = (temp_overflow_for_randomness % 4294967296);
 			}
-			
-			for(int a = 0; a < 100000; a++) {RAM_garbage[a] = 0; RAM_garbage[a] = 4294967295;} //..........Overwrites RAM of array unsigned int RAM_garbage[100000].
 		}
 		
 		
@@ -313,7 +290,7 @@ int main()
 		for(int a = 0; a < 100; a++) {actual_seeds[a] = 0; actual_seeds[a] = 4294967295;}
 		
 		cout << "\n";
-		if(RAM_Unix_time_supplement                == true) {cout << "Random "                      ;}
+		if(Unix_time_supplement                    == true) {cout << "Random "                      ;}
 		if(absurd_protection_against_cryptanalysis == true) {cout << code_length_in_thousands       ;}
 		else                                                {cout << code_length_in_thousands * 1000;}
 		
