@@ -21,7 +21,7 @@ but a complete difference--as if a hash.
 <br>
 <br>
 
-# For absolutely absurd cryptanalysis protection...
+# For absolutely absurd cryptanalysis protection
 
 Set absurd_protection_against_cryptanalysis to true.
 It writes only one of 1,000 items from randomness[ ] to file "Code" per round.
@@ -41,10 +41,9 @@ communicate only its hash.
 <br>
 <br>
 
-# Breaking news July 2024
+# Breaking news Linux
 
 * Memory is zeroed when allocated and freed.
 
 `init_on_alloc` and `init_on_free` has hit most Linux distros and growing.
 Although a plus for security, no more RAM garbage for supplementing randomness.
-I'll have to either replace or remove this feature here and in all my repos using rolling-code and related randomness supplement....
