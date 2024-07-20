@@ -47,3 +47,5 @@ communicate only its hash.
 
 `init_on_alloc` and `init_on_free` has hit most Linux distros and growing.
 Although a plus for security, rolling-code 3.1.1+ will no longer use RAM garbage for supplementing randomness.
+Another plus is no longer having to overwrite RAM containing sensitive data,
+but I'll never stop doing that.
