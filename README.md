@@ -41,11 +41,9 @@ communicate only its hash.
 <br>
 <br>
 
-# Breaking news Linux
+# RAM garbage?
 
-* Memory is zeroed when allocated and freed.
+* Unix_time_supplement randomness sprouts from Unix time and no longer supplemented with RAM garbage.
 
+RAM on Linux is now zeroed when allocated and freed; there's no more garbage.
 `init_on_alloc` and `init_on_free` has hit most Linux distros and growing.
-Although a plus for security, rolling-code 3.1.1+ will no longer use RAM garbage for supplementing randomness.
-Another plus is no longer having to overwrite RAM containing sensitive data,
-but I'll never stop doing that.
