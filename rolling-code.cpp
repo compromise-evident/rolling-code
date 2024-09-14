@@ -1,4 +1,4 @@
-/// rolling-code - generates random text symmetric with whom you                Run it: "apt install g++ geany". Open this in Geany. Hit F9 once. F5 to run.
+/// rolling-code - generates random text symmetric with whom you                Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
 ///                share any same file (used once to set rolling
 ///                seeds file.) For unique codes no matter the
 ///                file, set Unix_time_supplement to true.
