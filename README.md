@@ -37,8 +37,8 @@ communicate only its hash.
 # Tools using RC
 
 * Authorship
+* groupOTP
 * passOTP
-* OTP
 
 <br>
 <br>
