@@ -48,7 +48,8 @@ of greater equivalence. And that is desirable.
 You can adjust the formula in the following line,
 which is equivalent to "a/2 + a/7 + a/18",
 but you can edit just the 44 and 63 instead.<br>
-```int enhanced_average_gap = ((average_gap * 44) / 63);```
+```int enhanced_average_gap = ((average_gap * 44) / 63);```<br>
+https://www.wolframalpha.com/input?i=a%2F2+%2B+a%2F7+%2B+a%2F18
 
 <br>
 <br>
