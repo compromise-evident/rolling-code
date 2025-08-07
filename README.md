@@ -65,7 +65,7 @@ for good randomness.
 Here's an actual list of consecutive prime gaps following
 an 800-digit prime, where sudden big gaps throw
 the average off to "abnormal" highs.
-(Note that the formula only applies
+(Note that the formula applies best
 to finding "normal" gaps near values of 200+ digits.)
 
 ```text
