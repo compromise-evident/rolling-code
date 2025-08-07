@@ -99,17 +99,12 @@ It's a laughable analysis of
 <br>
 <br>
 
-## Rolling-code & cryptographic difficulty
+## Cryptographic difficulty
 
 "Near which private prime, will I find these public gaps?"
-But unfortunately, GMP uses random witnesses when classifying
-for primality. There are astronomically rare occasions where
-gaps generated on one device, differ from gaps generated on
-other devices. If you could easily get
-mpz_nextprime() and mpz_probab_prime_p() to run
-the same way no matter the device, you could have used
-this tool verbatim for reliable difficulties and rolling-codes,
-where both would be at least as statistically strong as semiprime factorization.
+is at least as statistically strong as semiprime factorization.
+Use this if you need to simply pose cryptographic difficulty.
+Otherwise, use groupOTP and passOTP for data encryption.
 
 <br>
 <br>
