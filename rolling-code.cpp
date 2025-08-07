@@ -5,9 +5,9 @@ int        digit_length  = 200; //50 to 50000
 //near which prime gaps are found. Smaller = faster.
 
 /*rolling-code - version 4.0.0
-Writes secure pseudorandom bytes to file based on prime gaps,
-symmetric with whom  you have in common  any file (used once
-to make a rolling-seeds file which you can keep altering.)*/
+Writes secure pseudorandom bytes to file based on prime
+gaps,  symmetric with whom  you have in common  any file
+(used once to make a rolling-seeds file you can alter.)*/
 
 #include <fstream>
 #include <gmp.h>
