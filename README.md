@@ -1406,6 +1406,6 @@ vNlNf)	ennnXpmen\YHTm@J8HJUw9#(t^G4nVq\}mG+XmsF/`FA]>E:X9"~:jVQa^y<n{),G\
 
 ## My other tools which use rolling-code
 
-* Authorship (not yet using the latest version)
-* groupOTP (not yet using the latest version)
-* passOTP (not yet using the latest version)
+* Authorship (not yet using the latest version) (will use this as cryptographic difficulty as well as for randomness)
+* groupOTP (not yet using the latest version) (will use this to generate reproducible randomness)
+* passOTP (not yet using the latest version) (will use this to generate reproducible randomness)
