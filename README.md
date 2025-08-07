@@ -4,16 +4,16 @@ Append ```-lgmp``` to Geany's compile & build commands. Hit F9 once. F5 to run.
 <br>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/compromise-evident/prime-gap-RNG/refs/heads/main/Other/Terminal.png">
+  <img src="https://raw.githubusercontent.com/compromise-evident/rolling-code/refs/heads/main/Other/Terminal.png">
 </p>
 
 <br>
 <br>
 
-# How it works
+## How it works
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/compromise-evident/prime-gap-RNG/refs/heads/main/Other/Formula.png">
+  <img src="https://raw.githubusercontent.com/compromise-evident/rolling-code/refs/heads/main/Other/Formula.png">
 </p>
 
 When a random file is dropped/entered as input,
@@ -1405,3 +1405,12 @@ o]mv~C{HNG
 vNlNf)	ennnXpmen\YHTm@J8HJUw9#(t^G4nVq\}mG+XmsF/`FA]>E:X9"~:jVQa^y<n{),G\
 
 ```
+
+<br>
+<br>
+
+## My other tools which use rolling-code
+
+* Authorship (not yet using the latest version)
+* groupOTP (not yet using the latest version)
+* passOTP (not yet using the latest version)
