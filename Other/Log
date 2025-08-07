@@ -2,6 +2,9 @@ rolling-code
 
 
 
+Version 4.0.0   rolling-code is now prime-gap-RNG. prime-gap-RNG is now deleted.
+                Aug 6 2025
+
 Version 3.1.1   Upgraded randomness supplement from  Unix time.  And removed RAM
                 garbage as randomness supplement due to  Linux now  zeroing  RAM
                 before allocating  it to a process,  and zeroing that  RAM after
