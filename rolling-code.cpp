@@ -23,7 +23,10 @@ int main()
 	in_stream.open("private_seeds");
 	if(in_stream.fail() == true)
 	{	//Gets path, fixes it, tries it.
-		cout << "\nBecause digit_length = " << digit_length << ",\n\njust once, drop/enter any file\nof " << digit_length << "+ random first bytes:\n";
+		cout << "\n(Since digit_length = " << digit_length << ", you'll get a rolling-seeds file containing"
+		     << "\na " << digit_length << "-digit value, near which prime gaps are found. Continued gaps are"
+		     << "\nthen used for the randomness in changing that value, end of each run.)\n"
+		     << "\nBecause digit_length = " << digit_length << ",\njust once, drop/enter any file\nof " << digit_length << "+ random first bytes:\n";
 		char path[100000] = {'\0'}; cin.getline(path, 100000); if(path[0] == '\0') {cin.getline(path, 100000);}
 		if(path[0] == '\'') {for(int bm = 0, a = 0; a < 100000; a++) {if(path[a] != '\'') {path[bm] = path[a]; if(path[bm] == '\\') {path[bm] = '\'';} bm++;}}}
 		for(int a = 99999; a >= 0; a--) {if(path[a] != '\0') {if(path[a] == ' ') {path[a] = '\0';} break;}}
@@ -43,6 +46,7 @@ int main()
 	in_stream.close();
 	
 	//Generates randomness.
+	cout << "\nWriting bytes...\n";
 	char seeds[50001] = {'\0'};
 	in_stream.open("private_seeds"); for(int a = 0; a < digit_length; a++) {in_stream.get(seeds[a]);} in_stream.close();         //Loads value.
 	if(seeds[digit_length - 1] == '\0') {cout << "\n\nprivate_seeds file too small.\n\n"; return 0;}                             //Checks its length.
@@ -72,6 +76,7 @@ int main()
 	out_stream.close();
 	
 	//Updates seeds file.
+	cout << "Rolling seed...\n";
 	out_stream.open("private_seeds");
 	for(int loops = 0; loops < digit_length; loops++)
 	{	//Gets 8 gaps.
@@ -111,6 +116,7 @@ int main()
 	//Creates analysis file about random_bytes file. You may remove all of the following blocks.
 	
 	//Gets byte occurrence.
+	cout << "Analyzing bytes...\n";
 	in_stream.open("random_bytes"); in_stream.get(file_byte); long long byte_occur[256] = {0};
 	for(; in_stream.eof() == false; in_stream.get(file_byte)) {raw_byte = file_byte; if(raw_byte < 0) {raw_byte += 256;} byte_occur[raw_byte]++;}
 	in_stream.close();
