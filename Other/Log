@@ -2,6 +2,10 @@ rolling-code
 
 
 
+Version 5.0.0   Simpler, 8x faster,  not sensitive to changes.  Each byte is now
+                ((gap * 100) + "second-to-last 2 digits of last prime") mod 256.
+                Jan 8 2026
+
 Version 4.0.0   rolling-code is now prime-gap-RNG. prime-gap-RNG is now deleted.
                 Aug 6 2025
 
