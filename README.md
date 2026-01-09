@@ -2325,6 +2325,6 @@ p~as)|f}qJxaZZ1)h%N3b
 
 ## My other tools which will use rolling-code 5
 
-* Authorship (not just for randomness, but the difficulties; "near which privare prime will I find these public gaps?")
+* Authorship (not just for randomness, but the difficulties; "near which private prime will I find these public gaps?")
 * groupOTP
 * passOTP
