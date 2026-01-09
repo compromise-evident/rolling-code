@@ -1,3 +1,0 @@
-if "" gap "" > "" left( "" {average gap} over {2} "" + "" {average gap} over {7} "" + "" {average gap} over {18} "" right)
-
-"         " then "" random "" bit "" is "" 1, "" else "" 0
