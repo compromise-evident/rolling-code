@@ -65,7 +65,7 @@ int main()
 			gap *= 10; gap += seeds[digit_length - 3] - 48;
 			gap *= 10; gap += seeds[digit_length - 2] - 48; gap %= 256;
 			if(gap < 128) {out_stream.put(gap);} else {out_stream.put(gap - 256);}
-			gap = 2; a++;
+			gap = 2; a++; cout << a << " of " << generate_bytes << "\n";
 		}
 	}
 	out_stream.close();
