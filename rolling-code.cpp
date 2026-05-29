@@ -51,11 +51,11 @@ int main()
 	
 	//Loads seeds.
 	char seeds[50001] = {'\0'};
-	long long size = filesystem::file_size("private_seeds"); if(size != digit_length) {cout << "\nprivate_seeds corrupted.\n"; return 1;} //Checks file size.
-	in_stream.open("private_seeds"); for(int a = 0; a < digit_length; a++) {in_stream.get(seeds[a]);} in_stream.close();                  //Loads value.
-	if(seeds[0] == '0') {seeds[0] = '5';}                                                                                                 //Forces its length.
-	mpz_t in, out; mpz_init(in); mpz_init(out); mpz_set_str(in, seeds, 10); mpz_nextprime(out, in); mpz_get_str(seeds, 10, out);          //Makes it prime.
-	mpz_t prime, two; mpz_init(prime); mpz_init(two); mpz_set_str(prime, seeds, 10); mpz_set_ui(two, 2);                                  //Dedicates.
+	long long size = filesystem::file_size("private_seeds"); if(size != digit_length) {cout << "\nBad private_seeds.\n"; return 1;} //Checks file size.
+	in_stream.open("private_seeds"); for(int a = 0; a < digit_length; a++) {in_stream.get(seeds[a]);} in_stream.close();            //Loads value.
+	if(seeds[0] == '0') {seeds[0] = '5';}                                                                                           //Forces its length.
+	mpz_t in, out; mpz_init(in); mpz_init(out); mpz_set_str(in, seeds, 10); mpz_nextprime(out, in); mpz_get_str(seeds, 10, out);    //Makes it prime.
+	mpz_t prime, two; mpz_init(prime); mpz_init(two); mpz_set_str(prime, seeds, 10); mpz_set_ui(two, 2);                            //Dedicates.
 	
 	//Generates randomness.
 	cout << "\nWriting bytes...\n";
