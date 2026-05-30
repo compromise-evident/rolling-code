@@ -1,8 +1,8 @@
 //YOUR CONTROLS:                                                                Run it: "apt install g++ geany libgmp-dev". Open the .cpp in Geany.
 long long generate_bytes = 2000;                                                //Append "-lgmp" to Geany's compile & build commands. Hit F9 once. F5 to run.
-int        digit_length  = 200; //50 to 50000
-//digit_length is the length of a (jumping) value,
-//near which prime gaps are found. Bigger = more secure.
+int        digit_length  =  200; //50000 max
+//digit_length is the length of a (jumping) value, near which
+//prime gaps are found, for randomness. Bigger = more secure.
 
 /*Version 5.0.1
 Writes secure pseudorandom bytes to file based on prime
