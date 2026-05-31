@@ -17,12 +17,13 @@ Append ```-lgmp``` to Geany's compile & build commands. Hit F9 once. F5 to run.
 <br>
 <br>
 
-## Cryptographic difficulty
+## Pose cryptographic difficulty
 
 "Near which private prime, will I find these public gaps?"
 is at least as statistically strong as semiprime factorization.
-Use this if you need to simply pose cryptographic difficulty.
-Otherwise, use groupOTP and passOTP for data encryption.
+For example, file "private_seeds" can be the key while the
+generated randomness can be ciphertext.
+Or you can start fresh with the following resources.
 
 <br>
 <br>
@@ -250,12 +251,3 @@ https://github.com/compromise-evident/WhatNot/blob/main/see_the_prime_following_
 1512
 242
 ```
-
-<br>
-<br>
-
-## My other tools which will use rolling-code 5
-
-* Authorship (not just for randomness, but the difficulties; "near which private prime will I find these public gaps?")
-* groupOTP
-* passOTP
