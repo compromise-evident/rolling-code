@@ -30,11 +30,11 @@ Or you can start fresh with the following resources.
 
 ## DIY
 
-https://github.com/compromise-evident/WhatNot/blob/main/see_consecutive_primes_and_gaps_following_n.cpp
+https://github.com/compromise-evident/what-not/blob/main/see_consecutive_primes_and_gaps_following_n.cpp
 
-https://github.com/compromise-evident/WhatNot/blob/main/see_natural_log_of_n.cpp
+https://github.com/compromise-evident/what-not/blob/main/see_natural_log_of_n.cpp
 
-https://github.com/compromise-evident/WhatNot/blob/main/see_the_prime_following_n.cpp
+https://github.com/compromise-evident/what-not/blob/main/see_the_prime_following_n.cpp
 
 <br>
 <br>
