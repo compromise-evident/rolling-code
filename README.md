@@ -10,7 +10,7 @@ Append ```-lgmp``` to Geany's compile & build commands. Hit F9 once. F5 to run.
 ```text
 (Since digit_length = 200, you'll get a rolling-seeds file containing
 a 200-digit value, near which prime gaps are found. Continued gaps are
-then used for the randomness in changing that value, end of each run.)
+then used for the randomness in changing that value, end of each run).
 
 Because digit_length = 200,
 just once, drop/enter any file

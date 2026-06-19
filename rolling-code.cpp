@@ -25,7 +25,7 @@ int main()
 	if(in_stream.fail())
 	{	cout << "\n(Since digit_length = " << digit_length << ", you'll get a rolling-seeds file containing"
 		     << "\na " << digit_length << "-digit value, near which prime gaps are found. Continued gaps are"
-		     << "\nthen used for the randomness in changing that value, end of each run.)\n"
+		     << "\nthen used for the randomness in changing that value, end of each run).\n"
 		     << "\nBecause digit_length = " << digit_length << ",\njust once, drop/enter any file\nof " << digit_length << "+ random first bytes:\n";
 		
 		//Gets path, fixes it if dropped.
