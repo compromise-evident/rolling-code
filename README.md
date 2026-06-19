@@ -1,23 +1,34 @@
-Run it: ```apt install g++ geany libgmp-dev```. Open the .cpp in Geany.<br>
+### Run it
+
+```apt install g++ geany libgmp-dev```. Open the .cpp in Geany.<br>
 Append ```-lgmp``` to Geany's compile & build commands. Hit F9 once. F5 to run.
 
-<p align="center">
-  <img src="docs/terminal.png">
-</p>
-
-<br>
 <br>
 
-## How it works
+### Terminal
+
+```text
+(Since digit_length = 200, you'll get a rolling-seeds file containing
+a 200-digit value, near which prime gaps are found. Continued gaps are
+then used for the randomness in changing that value, end of each run.)
+
+Because digit_length = 200,
+just once, drop/enter any file
+of 200+ random first bytes:
+|
+```
+
+<br>
+
+### How it works
 
 <p align="center">
   <img src="docs/how_it_works.png">
 </p>
 
 <br>
-<br>
 
-## Pose cryptographic difficulty
+### Pose cryptographic difficulty
 
 "Near which private prime, will I find these public gaps?"
 is at least as statistically strong as semiprime factorization.
@@ -26,9 +37,8 @@ generated randomness can be ciphertext.
 Or you can start fresh with the following resources.
 
 <br>
-<br>
 
-## DIY
+### DIY
 
 https://github.com/compromise-evident/what-not/blob/main/see_consecutive_primes_and_gaps_following_n.cpp
 
@@ -37,9 +47,8 @@ https://github.com/compromise-evident/what-not/blob/main/see_natural_log_of_n.cp
 https://github.com/compromise-evident/what-not/blob/main/see_the_prime_following_n.cpp
 
 <br>
-<br>
 
-## Sample: consecutive gaps following a 200-digit prime
+### Sample: consecutive gaps following a 200-digit prime
 
 ```text
 36
@@ -145,9 +154,8 @@ https://github.com/compromise-evident/what-not/blob/main/see_the_prime_following
 ```
 
 <br>
-<br>
 
-## Sample: consecutive gaps following a 1,000-digit prime
+### Sample: consecutive gaps following a 1,000-digit prime
 
 ```text
 122
