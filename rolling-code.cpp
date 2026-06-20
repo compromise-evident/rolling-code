@@ -4,15 +4,18 @@ int        digit_length  =  200; //50000 max
 //digit_length is the length of a (jumping) value, near which
 //prime gaps are found, for randomness. Bigger = more secure.
 
+
+
 /*Version 5.0.1
 Writes secure pseudorandom bytes to file based on prime
 gaps,  symmetric with whom  you have in common  any file
-(used once to make a rolling-seeds file you can alter.)*/
+(used once to make a rolling-seeds file you can alter).*/
 
 #include <filesystem>
 #include <fstream>
 #include <gmp.h>
 #include <iostream>
+#include <string>
 using namespace std;
 int main()
 {	int raw_byte;
@@ -28,10 +31,10 @@ int main()
 		     << "\nthen used for the randomness in changing that value, end of each run).\n"
 		     << "\nBecause digit_length = " << digit_length << ",\njust once, drop/enter any file\nof " << digit_length << "+ random first bytes:\n";
 		
-		//Gets path, fixes it if dropped.
-		string path; getline(cin, path); if(path[0] == '\0') {getline(cin, path);}
-		if(path[0] == '\'') {path.erase(0, 1); path.pop_back(); path.pop_back();}
-		in_stream.open(path); if(in_stream.fail()) {cout << "\nNo path " << path << "\n"; return 1;} in_stream.close();
+		//Gets path (files & folders).
+		std::string path; std::getline(std::cin, path); if(path[0] == '\0') {std::getline(std::cin, path);}
+		if(path[0] == '\'') {path.erase(0, 1); path.pop_back(); path.pop_back();} //Fixes path if drag-n-dropped.
+		in_stream.open(path); if(!in_stream) {std::cout << "\nNo path " << path << "\n"; return 1;} in_stream.close();
 		
 		//Checks file size.
 		long long size = filesystem::file_size(path);
