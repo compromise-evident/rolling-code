@@ -17,9 +17,9 @@ Just once, drop/enter any file, preferably one with many random bytes.
 ### How it works
 
 ```text
-SHA3-512 of a seed doubled side-by-side: a2d0cbdc486623fc2f0428e7fbefe5ca4a636af...
+A seed is loaded and its SHA3-512 hash is taken.
 
-1st 16 hex are converted to base 10: 11732101176268039164 mod 256 = pseudorandom byte.
+The 1st 16 hex of that hash are converted to base 10, mod 256 = byte.
 
 That hash becomes the new seed. Start again to get another byte.
 ```
