@@ -1,3 +1,7 @@
+Version 6.0.0   Based on SHA3-512, simple, fast, no dependencies,  ready for any
+                future hash style and length.
+                2026_06_29
+
 Version 5.0.2   Micro-refactored to be safe, future-proof. Renaming for clarity.
                 2026_06_28
 
