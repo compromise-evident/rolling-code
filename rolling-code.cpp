@@ -24,7 +24,7 @@ int main()
 	if(!in_stream)
 	{	//Gets path.
 		std::cout << "\nJust once, drop/enter any file, preferably one with many random bytes.\n"
-		          << "(Create a rolling-seed file containing the SHA3-512 hash of your file).\n";
+		          << "(Creates a rolling-seed file containing the SHA3-512 hash of your file).\n";
 		std::string path; std::getline(std::cin, path); if(path[0] == '\0') {std::getline(std::cin, path);}
 		if(path[0] == '\'') {path.erase(0, 1); path.pop_back(); path.pop_back();} //Fixes path if drag-n-dropped.
 		in_stream.open(path); if(!in_stream) {std::cout << "\nNo path " << path << "\n"; return 1;} in_stream.close();

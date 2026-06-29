@@ -8,7 +8,7 @@
 
 ```text
 Just once, drop/enter any file, preferably one with many random bytes.
-(Create a rolling-seed file containing the SHA3-512 hash of your file).
+(Creates a rolling-seed file containing the SHA3-512 hash of your file).
 |
 ```
 
