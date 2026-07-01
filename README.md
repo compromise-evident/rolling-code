@@ -17,7 +17,7 @@ Just once, drop/enter any file, preferably one with many random bytes:
 
 The "rolling-seed" file will initially contain the SHA3-512 hash of the file you provide.
 * A seed is loaded and its SHA3-512 hash is taken.
-* Pseudorandom byte = the first 16 hex of that hash in base 10, mod 256.
+* Pseudorandom byte = the first 16 hex of that hash, in base 10, mod 256.
 * That hash becomes the new seed. Start again to get another byte.
 
 <br>
