@@ -8,6 +8,7 @@ Write secure pseudorandom bytes to file based on SHA-512, symmetric
 with whom you share any file (used once to make a rolling-seed file
 you can alter in any way). Ready for any future hash. */
 
+#include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -20,13 +21,12 @@ int main()
 	std::string SHA_512_output;
 	
 	//Creates seed file if missing.
-	in_stream.open("rolling-seed");
-	if(!in_stream)
+	if(!std::filesystem::exists("rolling-seed"))
 	{	//Gets path.
 		std::cout << "\nJust once, drop/enter any file, preferably one with many random bytes:\n";
 		std::string path; std::getline(std::cin, path); if(path[0] == '\0') {std::getline(std::cin, path);}
 		if(path[0] == '\'') {path.erase(0, 1); path.pop_back(); path.pop_back();} //Fixes path if drag-n-dropped.
-		in_stream.open(path); if(!in_stream) {std::cout << "\nNo path " << path << "\n"; return 1;} in_stream.close();
+		if(!std::filesystem::exists(path)) {std::cout << "\nNo path " << path << "\n"; return 1;}
 		
 		//Hashes user's file.
 		in_stream.open(path); if(!in_stream) {std::cout << "\nCan't open file for reading. (Hashes user's file).\n"; return 1;}
@@ -39,7 +39,6 @@ int main()
 		out_stream << SHA_512_output;
 		out_stream.close();
 	}
-	in_stream.close();
 	
 	//Loads seed.
 	in_stream.open("rolling-seed"); if(!in_stream) {std::cout << "\nCan't open file for reading. (Loads seed).\n"; return 1;}
