@@ -24,8 +24,7 @@ int main()
 	if(!std::filesystem::exists("rolling-seed"))
 	{	//Gets path.
 		std::cout << "\nJust once, drop/enter any file, preferably one with many random bytes:\n";
-		std::string path; std::getline(std::cin, path);
-		if(path[0] == '\'') {path.erase(0, 1); path.pop_back(); path.pop_back();} //If drag-n-dropped.
+		std::string path; std::getline(std::cin, path); if(path[0] == '\'') {path.erase(0, 1); path.pop_back(); path.pop_back();}
 		if(!std::filesystem::exists(path)) {std::cout << "\nNo path " << path << "\n"; return 1;}
 		
 		//Hashes user's file.
