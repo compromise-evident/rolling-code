@@ -1,9 +1,11 @@
-//YOUR CONTROLS:                                                                Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
+//YOUR CONTROLS:
 unsigned long long generate_bytes = 1000000;
 
 
 
-/*Version 6.0.0
+/*Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
+
+Version 6.0.0
 Write secure pseudorandom bytes to file based on SHA-512, symmetric
 with whom you share any file (used once to make a rolling-seed file
 you can alter in any way). Ready for any future hash. */
