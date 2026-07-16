@@ -15,8 +15,7 @@ you can alter in any way). Ready for any future hash. */
 #include <iostream>
 #include <string>
 int main()
-{	char file_byte;
-	std::ifstream in_stream;
+{	std::ifstream in_stream;
 	std::ofstream out_stream;
 	
 	std::string SHA_512_input;
@@ -35,7 +34,7 @@ int main()
 	
 	//Loads seed.
 	in_stream.open("rolling-seed"); if(!in_stream) {std::cout << "\nCan't open file for reading. (Loads seed).\n"; return 1;}
-	std::string seed = ""; for(; in_stream.get(file_byte);) {seed.push_back(file_byte);}
+	std::string seed = ""; for(char file_byte; in_stream.get(file_byte);) {seed.push_back(file_byte);}
 	in_stream.close();
 	
 	//Generates pseudorandomness.
